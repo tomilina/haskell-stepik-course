@@ -22,3 +22,7 @@ perms :: Eq a => [a] -> [[a]]
 perms [] = [[]]
 perms [x] = [[x]]
 perms xs = concatMap (\x -> map (x:) (perms (filter (/=x) xs))) xs
+
+import Data.Char
+delAllUpper :: String -> String
+delAllUpper = unwords . filter (any isLower) . words
