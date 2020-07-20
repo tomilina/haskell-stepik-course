@@ -26,3 +26,6 @@ perms xs = concatMap (\x -> map (x:) (perms (filter (/=x) xs))) xs
 import Data.Char
 delAllUpper :: String -> String
 delAllUpper = unwords . filter (any isLower) . words
+
+max3 :: Ord d => [d] -> [d] -> [d] -> [d]
+max3 = zipWith3 (\x y z -> max (max x y) z)
